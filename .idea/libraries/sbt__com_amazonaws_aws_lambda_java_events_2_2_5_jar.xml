@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="sbt: com.amazonaws:aws-lambda-java-events:2.2.5:jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/jars/com.amazonaws/aws-lambda-java-events/aws-lambda-java-events-2.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/srcs/com.amazonaws/aws-lambda-java-events/aws-lambda-java-events-2.2.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

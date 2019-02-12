@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="sbt: com.amazonaws:aws-java-sdk-kms:1.11.494:jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/jars/com.amazonaws/aws-java-sdk-kms/aws-java-sdk-kms-1.11.494.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/srcs/com.amazonaws/aws-java-sdk-kms/aws-java-sdk-kms-1.11.494-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
