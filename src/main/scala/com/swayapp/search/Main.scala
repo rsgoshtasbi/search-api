@@ -19,9 +19,10 @@ import com.amazonaws.services.dynamodbv2.document.spec.{GetItemSpec, QuerySpec, 
 import com.amazonaws.services.dynamodbv2.model.ScanRequest // if you don't supply your own Protocol (see below)
 
 
-class Main extends RequestHandler[APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent] {
+class Main extends RequestHandler[Map[String, Any], APIGatewayProxyResponseEvent] {
 
-  override def handleRequest(event: APIGatewayProxyRequestEvent, context: Context): APIGatewayProxyResponseEvent = {
+//  override def handleRequest(event: APIGatewayProxyRequestEvent, context: Context): APIGatewayProxyResponseEvent = {
+  override def handleRequest(event: Map[String, Any], context: Context): APIGatewayProxyResponseEvent = {
     val retryPolicy = new RetryPolicy(
       null,
       new ExponentialBackoffStrategy(1000, 10000),
@@ -32,7 +33,7 @@ class Main extends RequestHandler[APIGatewayProxyRequestEvent, APIGatewayProxyRe
     clientConf.setRetryPolicy(retryPolicy)
 
     val dynamoClient = AmazonDynamoDBClientBuilder.standard
-      .withRegion(Regions.US_EAST_1)
+      .withRegion(Regions.US_WEST_2)
       .withClientConfiguration(clientConf)
       .build()
 
@@ -40,13 +41,13 @@ class Main extends RequestHandler[APIGatewayProxyRequestEvent, APIGatewayProxyRe
 
     var counter = 0
     val requestBody = event
-    println("request body: " + requestBody)
+    println("request body: " + requestBody.get("body").asInstanceOf[Map[String, String]])
 
 //    val spec = new ScanRequest()
 //      .withTableName("INFLUENCER_INFO")
 //    val scanResults = dynamoClient.scan(spec)
 //    scanResults.getItems.forEach(record => {
-//      println("record: " + record)
+//      println("record: " + record.toString)
 //    })
 
     new APIGatewayProxyResponseEvent().withBody("works").withStatusCode(200)
